@@ -1,2 +1,3 @@
-class Genre < ApplicationRecord
+class Genre < ActiveRecord::Base
+  has_many :games
 end

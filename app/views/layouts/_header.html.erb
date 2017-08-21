@@ -1,0 +1,19 @@
+    <!--  navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="<%= root_url %>"/>GameView</a>
+        </div>
+          <ul class="nav navbar-nav">
+            <% if current_user %>
+              <li><%= link_to "Profile" %></li>
+              <li><%= link_to "Games", games_path %></li>
+              <li><%= link_to "Reviews", reviews_path %></li>
+              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <li><%= link_to "Sign In", new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
