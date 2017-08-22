@@ -1,0 +1,7 @@
+<% if current_user.reviews.empty? %>
+  <%= "You don't have any reviews to display." %>
+<% else %>
+  <% current_user.reviews.each do |review|%>
+    <%= link_to 'Show', reviwe %>
+  <% end %>
+<% end %>

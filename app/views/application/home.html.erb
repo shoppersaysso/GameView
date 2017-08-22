@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
           <div class="">
-            <h1>Welcome to Gameview
+            <h1>Welcome to GameView
               <p class="lead"><%= current_user.email %></p>
             </h1>
           </div>
@@ -15,6 +15,8 @@
     <div class="container">
     	<div class="row">
 
+        <br></br>
+        <br></br>
 
 
           <!--right-->
@@ -25,8 +27,8 @@
                   <div class="panel-heading"><h3><%= link_to 'My Games', games_path %></h3></div>
                   <div class="panel-body">
 
-                    <% render :partial => 'games/list_games' %>
-                    <br>
+                    <%= render :partial => 'games/list_games' %>
+                    <br></br>
                     <%= link_to "[Add Game]", new_game_path %>
 
                   </div>
@@ -37,8 +39,8 @@
                   <div class="panel-heading"><h3><%= link_to 'My Consoles', consoles_path %></h3></div>
                   <div class="panel-body">
 
-                    <% render :partial => 'consoles/list_consoles' %>
-                    <br>
+                    <%= render :partial => 'consoles/list_consoles' %>
+                    <br></br>
                     <%= link_to "[Add Console]", new_console_path %>
 
                   </div>
@@ -46,22 +48,20 @@
               </div>
             </div>
 
+            <br></br>
+
             <hr>
 
-            <h2 id="sec2">Reviews</h2>
-            <p>
-              Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
-              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-              sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-              Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut!
-            </p>
-            <div class="row">
-              <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
-              <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
-              <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
-            </div>
+            <br></br>
 
+            <h2 id="sec2"><%= link_to 'Reviews', reviews_path %></h2>
+            <p>
+                <%= render :partial => 'reviews/list_reviews' %>
+                <br></br>
+            </p>
+
+            <br></br>
+            
             <hr>
 
             </div><!--/right-->
