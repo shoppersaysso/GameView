@@ -20,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
 
-gem 'boostrap-sass'
+gem 'twitter-bootstrap-rails'
 
 gem 'jquery-rails'
 
