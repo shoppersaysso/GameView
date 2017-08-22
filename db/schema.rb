@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 20170821220954) do
   create_table "consoles", force: :cascade do |t|
     t.string "name"
     t.integer "year_purchased"
+    t.integer "user_id"
+    t.integer "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -22,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170821220954) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.integer "genre_id"
+    t.integer "user_id"
     t.integer "review_id"
     t.string "status", default: "new"
     t.datetime "created_at", null: false

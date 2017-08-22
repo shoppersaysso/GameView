@@ -1,0 +1,7 @@
+<% if current_user.games.empty? %>
+<%= "You don't have any games to display." %>
+<% else %>
+<% current_user.games.each do |game|%>
+  <%= link_to 'Show', game %>
+  <% end %>
+<% end %>
