@@ -10,9 +10,12 @@
   </head>
   <body>
     <div class="container">
-      <%= render 'layouts/header' %>
-      <br />
-      <%= yield %>
+      <div class="text-center">
+        <%= render 'layouts/header' %>
+        <br />
+        <%= yield %>
+      </div>
+
     </div>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
