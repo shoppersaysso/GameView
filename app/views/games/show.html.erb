@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<h3><%= @game.title %></h3>
+<h4><%= @genres %></h4>
+<h4>Status: <%= @game.status %></h4>
+    <br></br>
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
