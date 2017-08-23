@@ -10,53 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822201803) do
+ActiveRecord::Schema.define(version: 20170823154448) do
 
-  create_table "consoles", force: :cascade do |t|
-    t.string "name"
-    t.integer "year_purchased"
-    t.integer "user_id"
+  create_table "game_attributes", force: :cascade do |t|
+    t.string "genre"
+    t.string "esrb_rating"
+    t.boolean "multiplayer"
     t.integer "game_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "game_genres", force: :cascade do |t|
-    t.integer "genre_id"
-    t.integer "game_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_game_attributes_on_game_id"
   end
 
   create_table "games", force: :cascade do |t|
     t.string "title"
-    t.integer "user_id"
-    t.integer "review_id"
+    t.string "developer"
     t.string "status", default: "new"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "genres", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.integer "rating"
-    t.integer "user_id"
     t.integer "game_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_reviews_on_game_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "password_digest"
-    t.integer "gameview_level"
+    t.integer "gameview_level", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

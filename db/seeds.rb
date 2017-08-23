@@ -5,21 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Genre.create(name: 'Action')
-Genre.create(name: 'Adventure')
-Genre.create(name: 'RPG')
-Genre.create(name: 'Simulation')
-Genre.create(name: 'Strategy')
-Genre.create(name: 'Sports')
-Genre.create(name: 'Horror')
-Genre.create(name: 'Kids')
-
-Console.create(name: 'XBox')
-Console.create(name: 'Playstation')
-Console.create(name: 'Nintendo')
-Console.create(name: 'Steam')
-Console.create(name: 'PC')
-Console.create(name: 'iOS')
-Console.create(name: 'Andriod')
-
 User.create(email: "sara@sara.com", password: "password", password_confirmation: "password")
+
+Game.create(title: 'StarCraft: Remastered', developer: "Blizzard Entertainment", user_id: 1, game_attributes_attributes: [genre: 'Science Fiction', esrb_rating: 'Teen', multiplayer: true])

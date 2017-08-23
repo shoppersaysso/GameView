@@ -4,9 +4,9 @@ class CreateReviews < ActiveRecord::Migration[5.1]
       t.string :title
       t.text :content
       t.integer :rating
-      t.integer :user_id
-      t.integer :game_id
-
+      t.belongs_to :game, index: true, foreign_key: true
+      t.belongs_to :user, index: true, foreign_key: true
+      
       t.timestamps
     end
   end

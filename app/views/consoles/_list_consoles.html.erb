@@ -1,7 +1,0 @@
-<% if current_user.consoles.empty? %>
-  <%= "You don't have any games to display." %>
-<% else %>
-  <% current_user.consoles.each do |console|%>
-    <%= link_to 'Show', console %>
-  <% end %>
-<% end %>
