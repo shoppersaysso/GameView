@@ -69,6 +69,6 @@ class GameAttributesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_attribute_params
-      params.fetch(:game_attribute, {})
+      params.require(:game_attributes).permit(:genre, :esrb_rating, :multiplayer)
     end
 end

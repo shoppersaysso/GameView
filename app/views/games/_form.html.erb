@@ -1,4 +1,4 @@
-<%= form_for @game do |f| %>
+<%= form_for(@game) do |f| %>
   <% if game.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
@@ -13,13 +13,10 @@
 
     <div class="actions">
       <p><%= f.label :title %>
-         <%= f.text_field :title %><p/>
-      <p><%= f.label :platform %>
-          <%= f.text_field :platform %><p/>
-          Additional Details:
-      <ul>
-        <%= f.fields_for :game_attributes do |attributes_form| %>
-          <li>
+         <%= f.text_field :title %></p>
+      <p><%= f.label :developer %>
+          <%= f.text_field :developer %></p>
+      <p><%= f.fields_for :game_attributes, GameAttribute.new do |attributes_form| %>
             <%= attributes_form.label :genre %>
             <%= attributes_form.text_field :genre %>
 
@@ -27,12 +24,11 @@
             <%= attributes_form.text_field :esrb_rating %>
 
             <%= attributes_form.label :multiplayer %>
-            <%= attributes_form.select :multiplayer, [['Yes', true], ['No', false]] %>
-            
-          </li>
+            <%= attributes_form.select :multiplayer, [['Yes', true], ['No', false]] %></p>
         <% end %>
-      </ul>
+
+        <%= f.submit %>
+
     <% end %>
 
   </div>
-<% end %>

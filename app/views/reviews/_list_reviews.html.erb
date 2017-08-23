@@ -1,5 +1,5 @@
 <% if current_user.reviews.empty? %>
-  <%= "You don't have any reviews to display." %>
+  <%= "You don't have any reviews to display. Why don't you choose a game to review?" %>
 <% else %>
   <% current_user.reviews.each do |review|%>
     <%= link_to 'Show', reviwe %>

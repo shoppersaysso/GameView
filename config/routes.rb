@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :game_attributes
-  resources :game_categories
   devise_for :users
   root to: 'application#index'
   get '/home', to: 'application#home', as: 'home'
 
-
+  resources :game_attributes
   resources :reviews
-  resources :consoles
-  resources :genres
   resources :games
 
   get '/users/sign_out', to: 'application#index'
