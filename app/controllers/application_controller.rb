@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
   def home
   end
 
+  def index
+    if signed_in?
+      redirect_to '/home'
+    end
+  end
+
 end

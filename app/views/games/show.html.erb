@@ -1,10 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h3><%= @game.title %></h3>
-<h4><%= @game.genres.each do |genre| %>
-    <li><%= genre.name %></li>
-    <% end %></h4>
+<h4><%= @game.game_attributes.each do |ga| %>
+    <li><%= ga.genre %></li>
+    <li><%= ga.esrb_rating %></li>
+    <li><%= boolean_to_words(ga)%></li></h4>
+    <% end %>
 <h4>Status: <%= @game.status %></h4>
+Change Status option
+Review Button
     <br></br>
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

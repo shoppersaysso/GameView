@@ -22,7 +22,7 @@
           <!--right-->
           <div class="">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-8">
                 <div class="panel panel-default">
                   <div class="panel-heading"><h3><%= link_to 'My Games', games_path %></h3></div>
                   <div class="panel-body">
@@ -34,14 +34,26 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="panel panel-default">
-                  <div class="panel-heading"><h3><%= link_to 'My Consoles', consoles_path %></h3></div>
+                  <div class="panel-heading"><h3>GameView Level</h3></div>
                   <div class="panel-body">
 
-                    <%= render :partial => 'consoles/list_consoles' %>
+                    <h3><% case current_user.gameview_level
+                        when 0 %>
+                    		Newbie
+                    		<% when 1, 2, 3 %>
+                    		Beginner Gamer
+                        <% when 4, 5, 6 %>
+                        Average Gamer
+                        <% when 7, 8, 9 %>
+                        Advanced Gamer
+                        <% when 10 %>
+                        Power Gamer
+                    		<% end %></h3>
+
                     <br></br>
-                    <%= link_to "[Add Console]", new_console_path %>
+
 
                   </div>
                 </div>
@@ -61,7 +73,7 @@
             </p>
 
             <br></br>
-            
+
             <hr>
 
             </div><!--/right-->

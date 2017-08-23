@@ -2,7 +2,7 @@ To get started, why don't you add a Game?
 
 
 
-<% if current_user.last_sign_in_at == nil %>
+<% if current_user.last_sign_in_count == 0 %>
 <% render 'application/first_signin' %>
 <% else %>
 <% render 'application/home' %>
