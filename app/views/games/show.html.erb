@@ -1,14 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <h3><%= @game.title %></h3>
-<h4><%= @game.game_attributes.each do |ga| %>
-    <li><%= ga.genre %></li>
-    <li><%= ga.esrb_rating %></li>
-    <li><%= boolean_to_words(ga)%></li></h4>
+
+<%= form_for(@game) do |f| %>
+
+
+    <div class="actions">
+      <p><%= f.label :developer %>
+          <%= f.text_field :developer %></p>
+      <p><%= f.fields_for :game_attributes do |attributes_form| %>
+            <%= attributes_form.label :genre %>
+            <%= attributes_form.text_field :genre %>
+
+            <%= attributes_form.label :esrb_rating %>
+            <%= attributes_form.text_field :esrb_rating %>
+
+            <%= attributes_form.label :multiplayer %>
+            <%= attributes_form.select :multiplayer, [['Yes', true], ['No', false]] %></p>
+        <% end %>
+        <p><%= f.label :status %>
+           <%= f.select :status,[['New', 'new'], ['Playing', 'playing'], ['Beat', 'beat'],]  %></p>
+        <%= f.submit %>
     <% end %>
-<h4>Status: <%= @game.status %></h4>
-Change Status option
-Review Button
-    <br></br>
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+    <br>
+    <br>
+  </div>
+  <h4><%= link_to 'Review Game', new_review_path %></h4>
+  <br>
+  <%= link_to 'Back', games_path %> |
+  <%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %></p>
