@@ -25,6 +25,12 @@ class ReviewsController < ApplicationController
   #  end
   end
 
+  # def index_show
+  #   @review = Review.find(params[:id])
+  #   @game = Game.find(params[:game_id])
+  #   @review.game_id = @game.id
+  # end
+
   # GET /reviews/new
   def new
     @game = Game.find(params[:game_id])

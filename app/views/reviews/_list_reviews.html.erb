@@ -3,11 +3,12 @@
   <%= @recent_reviews.each do |review| %>
     <p>"<%=link_to review.title, [review.game, review] %>"</p>
     <p>"<%= review.content %>"</p>
-    <p>Review for <%= link_to review.game.title, game_path(review)%></p>
+    <p>Review for <%= link_to review.game.title, games_path(review)%></p>
   <% end %>
 <% else %>
   <% current_user.reviews.each do |review|%>
-    <p>"<%=link_to review.title, [review.game, review] %>"</p>
-    <p>Review for <%= link_to review.game.title, game_path(review)%></p>
+    <p>"<%=link_to review.title, index_show_path(review) %>"</p>
+    <p><%= review.content %></p>
+    <p>Review for <%= link_to review.game.title, games_path(review)%></p>
   <% end %>
 <% end %>

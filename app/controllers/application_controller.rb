@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def home
     @recent_reviews = Review.most_recent(5)
+
   end
 
   def index
