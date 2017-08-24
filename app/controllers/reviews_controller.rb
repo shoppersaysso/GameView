@@ -11,8 +11,8 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
-    @review = Review.find(params[:id])
-    @game = Game.find(params[:game_id])
+    @review = Review.find(params[:game_id])
+    @game = Game.find(params[:id])
     @review.game_id = @game.id
   #   if params[:game_id]
   #    @game = Game.find_by(id: params[:game_id])
@@ -86,7 +86,6 @@ class ReviewsController < ApplicationController
     @review.destroy
     current_user.gameview_level -= 1
     current_user.save
-    
     respond_to do |format|
       format.html { redirect_to home_path, notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
