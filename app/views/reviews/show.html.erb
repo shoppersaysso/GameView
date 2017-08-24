@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<h1><%= @review.title %></h1>
+<h3><%= @review.content %></h3>
+
+
+<%= link_to 'Edit', edit_game_review_path(@review) %> |
+<%= link_to 'Back', home_path %>

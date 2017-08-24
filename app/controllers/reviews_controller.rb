@@ -10,16 +10,20 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+    @game = Review.find(params[:game_id])
+    @review.game_id = @game.id
   end
 
   # GET /reviews/new
   def new
     @game = Game.find(params[:game_id])
+    @review = @game.reviews.new
 
   end
 
   # GET /reviews/1/edit
   def edit
+    @game = Game.find(params[:id])
   end
 
   # POST /reviews
@@ -28,10 +32,11 @@ class ReviewsController < ApplicationController
     @game = Game.find(params[:game_id])
     @review = Review.new(review_params)
     @review.user_id = current_user.id
+    @review.game_id = @game.id
 
     respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+    if @review.save
+        format.html { redirect_to game_review_path(@review, @review.game_id), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -45,7 +50,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to game_review_path(@review, @review.game_id), notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
@@ -59,7 +64,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to user_home_path, notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,7 +72,7 @@ class ReviewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_review
-      @review = Review.find(params[:id])
+      @review = Review.find(params[:game_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

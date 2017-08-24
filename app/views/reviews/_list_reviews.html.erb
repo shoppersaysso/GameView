@@ -2,6 +2,7 @@
   <%= "You don't have any reviews to display. Why don't you choose a game to review?" %>
 <% else %>
   <% current_user.reviews.each do |review|%>
-    <%= link_to 'Show', reviwe %>
+    <p>"<%= review.title%>"</p>
+    <p>Review for <%= link_to review.game.title, game_path(review)%></p>
   <% end %>
 <% end %>
