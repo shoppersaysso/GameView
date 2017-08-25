@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  load_and_authorize_resource
   # before_action :set_review, only: [:edit, :update, :destroy]
 
   # GET /reviews
@@ -25,11 +26,6 @@ class ReviewsController < ApplicationController
   #  end
   end
 
-  # def index_show
-  #   @review = Review.find(params[:id])
-  #   @game = Game.find(params[:game_id])
-  #   @review.game_id = @game.id
-  # end
 
   # GET /reviews/new
   def new

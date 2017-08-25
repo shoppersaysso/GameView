@@ -1,4 +1,5 @@
 class GameAttributesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_game_attribute, only: [:show, :edit, :update, :destroy]
 
   # GET /game_attributes

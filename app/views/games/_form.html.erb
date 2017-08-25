@@ -1,22 +1,11 @@
-<%= form_for(@game) do |f| %>
-  <% if game.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
-
-      <ul>
-      <% game.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: game, local: true) do |f| %>
 
     <div class="actions">
       <p><%= f.label :title %>
          <%= f.text_field :title %></p>
       <p><%= f.label :developer %>
           <%= f.text_field :developer %></p>
-      <p><%= f.fields_for :game_attributes, GameAttribute.new do |attributes_form| %>
+      <p><%= f.fields_for :game_attributes do |attributes_form| %>
             <%= attributes_form.label :genre %>
             <%= attributes_form.text_field :genre %>
 

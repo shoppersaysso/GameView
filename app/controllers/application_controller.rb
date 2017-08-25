@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  # check_authorization
+  before_action :authenticate_user!
 
   def after_sign_in_path_for(resource)
     home_path
