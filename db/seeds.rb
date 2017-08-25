@@ -8,3 +8,5 @@
 User.create(email: "sara@sara.com", password: "password", password_confirmation: "password")
 
 Game.create(title: 'StarCraft: Remastered', developer: "Blizzard Entertainment", user_id: 1, game_attributes_attributes: [genre: 'Science Fiction', esrb_rating: 'Teen', multiplayer: true])
+
+Review.create(title: 'Amazing Gameplay!', content: 'Another great offering from Blizzard and true to the franchise. The visuals are stunning. 4 stars!', game_id: 1, user_id: 1)
