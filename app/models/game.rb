@@ -5,6 +5,6 @@ class Game < ActiveRecord::Base
   accepts_nested_attributes_for :game_attributes, allow_destroy: true
   has_many :reviews
 
-  validates :title, presence: true
+  validates :title, :developer, presence: true
 
 end

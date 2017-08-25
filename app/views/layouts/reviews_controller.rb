@@ -1,7 +1,4 @@
 class ReviewsController < ApplicationController
-  load_and_authorize_resource
-  # before_action :set_review, only: [:edit, :update, :destroy]
-
   # GET /reviews
   # GET /reviews.json
   def index
@@ -15,15 +12,6 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:game_id])
     @game = Game.find(params[:id])
     @review.game_id = @game.id
-  #   if params[:game_id]
-  #    @game = Game.find_by(id: params[:game_id])
-  #    @review = @game.reviews.find_by(id: params[:id])
-  #    if @game.nil?
-  #      redirect_to game_reviews_path(@game), alert: "Review not found"
-  #    end
-  #  else
-  #    @review = Review.find(params[:id])
-  #  end
   end
 
 
@@ -31,11 +19,6 @@ class ReviewsController < ApplicationController
   def new
     @game = Game.find(params[:game_id])
     @review = @game.reviews.new
-  #   if params[:game_id] && !Game.exists?(params[:game_id])
-  #    redirect_to games_path, alert: "Game not found."
-  #  else
-  #    @review = Review.new(game_id: params[:game_id])
-  #   end
   end
 
   # GET /reviews/1/edit
@@ -95,11 +78,6 @@ class ReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    # def set_review
-    #   @review = Review.find(params[:game_id])
-    # end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:title, :content)
