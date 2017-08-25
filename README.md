@@ -1,29 +1,12 @@
-<<<<<<< HEAD
 # README
+GameView
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sign up for a user account (or log in via Facebook), catalog the video games you own and create reviews.
 
-Things you may want to cover:
+The more reviews you create, the higher your GameView Level goes!
 
-* Ruby version
+To run locally:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
-# GameView
-My FlatIron School Rails Portfolio App
->>>>>>> 6644ceb130a7bc1cb8e2d533bd3d27995f793972
+Fork the repo
+Bundle install with command - bundle or bundle install
+Run rails s and navigate to http://localhost:3000
