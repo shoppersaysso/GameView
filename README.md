@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# GameView
+My FlatIron School Rails Portfolio App
+>>>>>>> 6644ceb130a7bc1cb8e2d533bd3d27995f793972
