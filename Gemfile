@@ -22,6 +22,12 @@ gem 'devise'
 
 gem 'cancan'
 
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
+gem 'dotenv-rails'
+
 gem 'twitter-bootstrap-rails'
 
 gem 'jquery-rails'
