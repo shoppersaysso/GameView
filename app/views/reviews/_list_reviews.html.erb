@@ -9,6 +9,6 @@
   <% current_user.reviews.each do |review|%>
     <p><h3><strong><%=link_to review.title, game_review_path(review.game, review) %></strong></h3></p>
     <p><em><%= review.content %></em></p>
-    <p>Review for "<%= link_to review.game.title, game_path(review.game, review)%>"</p>
+    <p>Review for "<%= link_to review.game.title, game_path(review.game)%>"</p>
   <% end %>
 <% end %>
