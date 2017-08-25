@@ -11,7 +11,9 @@ class ApplicationController < ActionController::Base
   end
 
   def index
-
+    if signed_in?
+      redirect_to '/home'
+    end
   end
 
 end
