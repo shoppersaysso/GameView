@@ -1,27 +1,22 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
-  
-  # GET /games
-  # GET /games.json
+  before_action :disable_flash
+
   def index
     @games = Game.where("user_id IN (?)", current_user.id)
   end
-  # GET /games/1
-  # GET /games/1.json
+
   def show
   end
 
-  # GET /games/new
   def new
     @game = Game.new
   end
 
-  # GET /games/1/edit
   def edit
   end
 
-  # POST /games
-  # POST /games.json
+
   def create
     @game = Game.new(game_params)
     @game.user_id = current_user.id
@@ -37,8 +32,6 @@ class GamesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /games/1
-  # PATCH/PUT /games/1.json
   def update
     respond_to do |format|
       if @game.update(game_params)
@@ -51,23 +44,20 @@ class GamesController < ApplicationController
     end
   end
 
-  # DELETE /games/1
-  # DELETE /games/1.json
   def destroy
     @game.destroy
     respond_to do |format|
-      format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }
+      format.html { redirect_to games_url, notice: 'Game was successfully deleted.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_game
       @game = Game.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
       params.require(:game).permit(:title, :developer, :status, game_attributes_attributes: [ :id, :genre, :esrb_rating, :multiplayer ])
     end

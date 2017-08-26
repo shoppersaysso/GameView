@@ -1,29 +1,29 @@
 class ReviewsController < ApplicationController
-  before_action :set_review only: [:edit, :update, :destroy]
-
-  def index
-    @review = Review.find(params[:game_id])
-    @reviews = Review.all
-  end
+  before_action :disable_flash, :load_game
 
   def show
-    @review = Review.find(params[:game_id])
-    @game = Game.find(params[:id])
-    @review.game_id = @game.id
+    @review = @game.reviews.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @review }
+    end
   end
 
   def new
-    @game = Game.find(params[:game_id])
-    @review = @game.reviews.new
+    @review = @game.reviews.build
 
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @review }
+    end
   end
 
   def edit
-    @game = Game.find(params[:game_id])
+    @review = @game.reviews.find(params[:id])
   end
 
   def create
-    @game = Game.find(params[:game_id])
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.game_id = @game.id
@@ -31,46 +31,50 @@ class ReviewsController < ApplicationController
     current_user.save
 
     respond_to do |format|
-    if @review.save
-        format.html { redirect_to game_review_path(@review, @review.game_id), notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
+      if @review.save
+        format.html { redirect_to([@review.game, @review], :notice => 'Review was successfully created.') }
+        format.xml  { render :xml => @review, :status => :created, :location => [@review.game, @review] }
       else
-        format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @review.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   def update
-    @game = Game.find(params[:game_id])
+    @review = @game.reviews.find(params[:id])
+
     respond_to do |format|
-      if @review.update(review_params)
-        format.html { redirect_to game_review_path(@review, @review.game_id), notice: 'Review was successfully updated.' }
-        format.json { render :show, status: :ok, location: @review }
+      if @review.update_attributes(review_params)
+        format.html { redirect_to([@review.game, @review], :notice => 'Review was successfully updated.') }
+        format.xml  { head :ok }
       else
-        format.html { render :edit }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @review.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   def destroy
+    @review = @game.reviews.find(params[:id])
     @review.destroy
     current_user.gameview_level -= 1
     current_user.save
+
     respond_to do |format|
-      format.html { redirect_to home_path, notice: 'Review was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to(home_path) }
+      format.xml  { head :ok }
     end
   end
 
-  private
+private
 
-  def set_review
-      @review = Review.find(params[:id])
+  def load_game
+    @game = Game.find(params[:game_id])
   end
 
-    def review_params
-      params.require(:review).permit(:title, :content)
-    end
+  def review_params
+    params.require(:review).permit(:title, :content, :game_id, :user_id)
+  end
+
 end

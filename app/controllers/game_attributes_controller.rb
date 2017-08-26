@@ -1,29 +1,21 @@
 class GameAttributesController < ApplicationController
-  load_and_authorize_resource
   before_action :set_game_attribute, only: [:show, :edit, :update, :destroy]
+  before_action :disable_flash
 
-  # GET /game_attributes
-  # GET /game_attributes.json
   def index
     @game_attributes = GameAttribute.all
   end
 
-  # GET /game_attributes/1
-  # GET /game_attributes/1.json
   def show
   end
 
-  # GET /game_attributes/new
   def new
     @game_attribute = GameAttribute.new
   end
 
-  # GET /game_attributes/1/edit
   def edit
   end
 
-  # POST /game_attributes
-  # POST /game_attributes.json
   def create
     @game_attribute = GameAttribute.new(game_attribute_params)
 
@@ -38,8 +30,6 @@ class GameAttributesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /game_attributes/1
-  # PATCH/PUT /game_attributes/1.json
   def update
     respond_to do |format|
       if @game_attribute.update(game_attribute_params)
@@ -52,8 +42,6 @@ class GameAttributesController < ApplicationController
     end
   end
 
-  # DELETE /game_attributes/1
-  # DELETE /game_attributes/1.json
   def destroy
     @game_attribute.destroy
     respond_to do |format|
@@ -63,12 +51,12 @@ class GameAttributesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_game_attribute
       @game_attribute = GameAttribute.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def game_attribute_params
       params.require(:game_attributes).permit(:genre, :esrb_rating, :multiplayer)
     end

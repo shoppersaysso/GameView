@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     request.env['omniauth.origin'] || home_path
   end
 
+  def disable_flash
+    @disable_flash = true
+  end
+
   def home
     @recent_reviews = Review.most_recent(5)
   end
