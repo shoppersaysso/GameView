@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(email: "sara@sara.com", password: "password", password_confirmation: "password")
+User.create(email: "sara@sara.com", password: "password", password_confirmation: "password", gameview_level: 3)
 
 Game.create(title: 'StarCraft: Remastered', developer: "Blizzard Entertainment", user_id: 1, game_attributes_attributes: [genre: 'Science Fiction', esrb_rating: 'Teen', multiplayer: true])
 
