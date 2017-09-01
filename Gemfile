@@ -24,6 +24,8 @@ gem 'cancan'
 
 gem 'omniauth'
 
+gem 'pry'
+
 gem 'omniauth-facebook'
 
 gem 'dotenv-rails'

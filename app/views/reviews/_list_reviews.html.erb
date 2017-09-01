@@ -1,5 +1,5 @@
 <% if current_user.reviews.empty? %>
-  <%= "You don't have any reviews to display. Check out some recent reviews by other users:" %>
+  <%= "There aren't any reviews to display. Check out some recent reviews by other users:" %>
   <% @recent_reviews.each do |review| %>
     <p><h3><strong><%=review.title %></strong></h3></p>
     <p><em><%= review.content %></em></p>

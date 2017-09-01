@@ -18,8 +18,7 @@ class GamesController < ApplicationController
 
 
   def create
-    @game = Game.new(game_params)
-    @game.user_id = current_user.id
+    @game = current_user.games.build(game_params)
 
     respond_to do |format|
       if @game.save
@@ -46,6 +45,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
+
     respond_to do |format|
       format.html { redirect_to games_url, notice: 'Game was successfully deleted.' }
       format.json { head :no_content }

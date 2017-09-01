@@ -24,11 +24,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.user_id = current_user.id
+    @review = current_user.reviews.build(review_params)
     @review.game_id = @game.id
-    current_user.gameview_level += 1
-    current_user.save
+    current_user.level_up
 
     respond_to do |format|
       if @review.save
@@ -58,8 +56,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = @game.reviews.find(params[:id])
     @review.destroy
-    current_user.gameview_level -= 1
-    current_user.save
+    current_user.level_down
 
     respond_to do |format|
       format.html { redirect_to(home_path) }
