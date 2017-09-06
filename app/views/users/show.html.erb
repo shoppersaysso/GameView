@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
-
     <% if @user.reviews.empty? %>
     <h2><%= @user.email %> doesn't have any reviews!</h2>
     <% else %>
   <h1><%= @user.email %>'s Reviews:</h1>
+  <br>
     <div>
       <% @user.reviews.each do |review| %>
         <h2><strong><%= review.title %></strong></h2>
