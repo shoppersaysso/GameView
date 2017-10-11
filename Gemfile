@@ -26,6 +26,8 @@ gem 'omniauth'
 
 gem 'pry'
 
+gem 'active_model_serializers', '0.9.3'
+
 gem 'omniauth-facebook'
 
 gem 'dotenv-rails'
