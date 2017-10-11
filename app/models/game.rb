@@ -5,6 +5,6 @@ class Game < ActiveRecord::Base
 
   def is_multiplayer?
    self.multiplayer ? 'Multiplayer' : 'Single-Player'
- end
-
+  end
+ 
 end

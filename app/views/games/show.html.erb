@@ -4,8 +4,7 @@
   <p><strong>Developer: </strong><%= @game.developer %></p>
     <p><strong>Genre: </strong><%= @game.genre%></p>
     <p><strong>ESRB Rating: </strong><%= @game.esrb_rating%></p>
-    <p><strong>Players: </strong><%= @gmame.is_multiplayer?%></p>
-  <% end %>
+    <p><strong>Players: </strong><%= @game.is_multiplayer?%></p>
 
   <%= form_for(@game) do |f| %>
     <p><%= f.label :status %>
@@ -17,6 +16,6 @@
 
   <h4><%= link_to 'Review Game', new_game_review_path(@game) %></h4>
   <br>
-  <%= link_to 'Back', games_path %> |
+  <%= link_to 'Back', home_path %> |
   <%= link_to 'Edit', edit_game_path(@game) %> |
   <%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %></p>

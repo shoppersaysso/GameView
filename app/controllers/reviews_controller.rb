@@ -5,8 +5,8 @@ class ReviewsController < ApplicationController
     @review = @game.reviews.find(params[:id])
 
     respond_to do |format|
-      format.html
-      format.xml  { render :xml => @review }
+      format.html { render :show }
+      format.xml  { render json:  @review }
     end
   end
 
@@ -62,6 +62,11 @@ class ReviewsController < ApplicationController
       format.html { redirect_to(home_path) }
       format.xml  { head :ok }
     end
+  end
+
+  def content
+    review = Review.find(params[:id])
+    render plain: review.content
   end
 
 private

@@ -7,6 +7,10 @@ class GamesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @game}
+    end
   end
 
   def new
@@ -15,7 +19,6 @@ class GamesController < ApplicationController
 
   def edit
   end
-
 
   def create
     @game = current_user.games.build(game_params)
@@ -51,6 +54,11 @@ class GamesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def details
+   game = Game.find(params[:id])
+   render plain: game.genre
+ end
 
   private
 

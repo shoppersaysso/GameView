@@ -7,6 +7,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.xml  { render json:  @user }
+    end
   end
 
   def game_list

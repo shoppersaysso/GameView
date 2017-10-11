@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   root to: 'application#index'
   get '/home', to: 'users#home', as: 'home'
 
-  resources :game_attributes
-
   resources :games do
     resources :reviews
   end
+
+  get 'games/:id/details', to: 'games#details'
+  get 'reviews/:id/content', to: 'reviews#content'
 
   get '/users/sign_out', to: 'application#index'
   get '/users/index', to: 'users#index'
