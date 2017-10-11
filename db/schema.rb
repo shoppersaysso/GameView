@@ -12,25 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20170825181758) do
 
-  create_table "game_attributes", force: :cascade do |t|
-    t.string "genre"
-    t.string "esrb_rating"
-    t.boolean "multiplayer"
-  end
-
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.string "developer"
+    t.string "genre"
+    t.string "esrb_rating"
+    t.boolean "multiplayer"
     t.string "status", default: "new"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_games_on_user_id"
-  end
-
-  create_table "games_game_attributes", id: false, force: :cascade do |t|
-    t.integer "game_id"
-    t.integer "game_attribute_id"
   end
 
   create_table "reviews", force: :cascade do |t|

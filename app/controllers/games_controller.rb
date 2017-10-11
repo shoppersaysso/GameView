@@ -59,6 +59,6 @@ class GamesController < ApplicationController
     end
 
     def game_params
-      params.require(:game).permit(:title, :developer, :status, game_attributes_attributes: [ :id, :genre, :esrb_rating, :multiplayer ])
+      params.require(:game).permit(:title, :developer, :status, :genre, :esrb_rating, :multiplayer)
     end
 end
