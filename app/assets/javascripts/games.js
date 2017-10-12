@@ -1,9 +1,11 @@
-// $(function() {
-//   $(".js-more").on("click", function() {
-//     var id = $(this).data("id");
-//     $.get("/games/" + id + "/details", function(details) {
-//       var detailText = "<p>" + details + "</p>";
-//         $("#game-" + id).html(detailText);
-//     });
-//   });
-// });
+// more details button truncation
+
+$(function() {
+  $(".js-more").on("click", function() {
+    var gameId = $(this.id).selector;
+    $.get("/games/" + gameId + "/details", function(game) {
+        $("#body-" + gameId ).html(game);
+        $(".js-more").addClass("hidden");
+    });
+  });
+});
