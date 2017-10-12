@@ -13,9 +13,4 @@ class UsersController < ApplicationController
     end
   end
 
-  # def game_list
-  #   list = Game.find(params[:id])
-  #   render plain: list.games
-  # end
-
 end

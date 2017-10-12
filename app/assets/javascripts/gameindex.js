@@ -11,35 +11,24 @@ $(document).ready(function(){
         $("#signup").addClass("hidden");
 
     });
+    // $.get('/list_items/31.json', function(listItemObject){
 
 // games
 $(function() {
   $(".js-more").on("click", function() {
     var gameId = $(this.id).selector;
-    $.getJSON("/games/" + gameId + "/details", function(data) {
-        $("#game-" + gameid).html(data["details"]);
+    $.get("/games/" + gameId + "/details", function(game) {
+        $("#body-" + gameId ).html(game);
     });
   });
 });
 
 //reviews truncated
-//
-// $(function() {
-//   $(".review-more").on("click", function() {
-//     var reviewId = $(this.id).selector;
-//     $.getJSON("/reviews/" + reviewId + "/content", function(data) {
-//       // var contentText = "<p>" + content + "</p>";
-//         $("#review-" + reviewId).html(data['content']);
-//
-//     });
-//   });
-// });
 $(function () {
-  $(".review-more").on('click', function() {
-    var id = $(this.id).selector;
-    $.getJSON("/reviews/" + id + "/content", function(data) {
-      // Replace text of body-id div
-      $("#body-" + id).html(data["content"]);
+  $(".review-more").on("click", function() {
+    var reviewId = $(this.id).selector;
+    $.getJSON("/reviews/" + reviewId + "/content", function(data) {
+      $("#body-" + reviewId).html(data);
     });
   });
 });

@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: [:edit, :show, :update, :destroy]
   before_action :disable_flash
 
   def index
@@ -7,9 +7,10 @@ class GamesController < ApplicationController
   end
 
   def show
+    @games = Game.where("user_id IN (?)", current_user.id)
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @game}
+      format.json { render json: @games}
     end
   end
 
@@ -57,7 +58,7 @@ class GamesController < ApplicationController
 
   def details
    game = Game.find(params[:id])
-   render plain: game.genre
+   render json: game.details
  end
 
   private

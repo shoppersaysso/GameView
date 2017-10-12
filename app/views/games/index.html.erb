@@ -4,11 +4,7 @@
 
 
   <div>
-    <% @games.each do |game| %>
-        <p><h4><%=link_to game.title, game %></h4></p>
-        <p><h5><em>(<%= game.status %>)</em></h5></p>
-
-    <% end %>
+      <%= render :partial => 'games/list_games', locals: {games: @games}  %>
   </div>
 
 <br>
