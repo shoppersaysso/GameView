@@ -6,4 +6,15 @@ class GameSerializer < ActiveModel::Serializer
     { self: game_path(object.id) }
   end
 
+  def details
+    object.details.map do |d|
+      {
+        Developer: d.developer,
+        Genre: d.genre,
+        ESRB: d.esrb_rating,
+        Multiplayer: d.is_multiplayer?
+      }
+    end
+  end
+
 end

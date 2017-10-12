@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :disable_flash, :load_game
+  before_action :disable_flash, :load_game, only: [:show, :edit, :update, :destroy]
 
   def show
     @review = @game.reviews.find(params[:id])
@@ -66,7 +66,7 @@ class ReviewsController < ApplicationController
 
   def content
     review = Review.find(params[:id])
-    render plain: review.content
+    render json: review.content
   end
 
 private

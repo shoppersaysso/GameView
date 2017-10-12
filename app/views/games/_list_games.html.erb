@@ -3,6 +3,7 @@
 <% else %>
 <% current_user.games.each do |game|%>
   <p><%= link_to game.title, game %></p>
+  <div id="body-<%= game.id %>"><p><em><%= truncate game.details %></em></p></div>
   <button id="<%= game.id %>" class="js-more" data-id="<% game.id %>">More Details</button>
   <% end %>
 <% end %>
