@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   get 'games/:id/details', to: 'games#details'
-  get 'reviews/:id/content', to: 'reviews#content'
+  get '/games/:game_id/reviews/:id/content', to: 'reviews#content'
 
   get '/users/sign_out', to: 'application#index'
   get '/users/index', to: 'users#index'

@@ -2,7 +2,8 @@
 $(function () {
   $(".review-more").on("click", function() {
     var reviewId = $(this.id).selector;
-    $.getJSON("/reviews/" + reviewId + "/content", function(data) {
+    debugger
+    $.getJSON(reviewId, function(data) {
       $("#body-" + reviewId).html(data);
     });
   });

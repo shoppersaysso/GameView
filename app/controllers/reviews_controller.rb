@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       format.html { render :show }
-      format.xml  { render json:  @review }
+      format.json { render json: @game, include:[:reviews] }
     end
   end
 
