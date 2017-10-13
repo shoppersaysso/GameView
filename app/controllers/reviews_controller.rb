@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
-  before_action :disable_flash, :load_game
+  before_action :disable_flash, :load_game, only: [:show, :new, :edit, :update, :destroy]
 
   def show
     @review = @game.reviews.find(params[:id])
 
     respond_to do |format|
-      format.html
-      format.xml  { render :xml => @review }
+      format.html { render :show }
+      format.json  { render :json => @review }
     end
   end
 
@@ -62,6 +62,11 @@ class ReviewsController < ApplicationController
       format.html { redirect_to(home_path) }
       format.xml  { head :ok }
     end
+  end
+
+  def content
+    review = Review.find(params[:id])
+    render json: review.content
   end
 
 private

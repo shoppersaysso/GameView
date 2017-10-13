@@ -7,6 +7,11 @@ class GamesController < ApplicationController
   end
 
   def show
+    @games = Game.where("user_id IN (?)", current_user.id)
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @games }
+    end
   end
 
   def new
@@ -52,6 +57,11 @@ class GamesController < ApplicationController
     end
   end
 
+  def details
+    game = Game.find(params[:id])
+    render plain: game.details
+  end
+
   private
 
     def set_game
@@ -59,6 +69,6 @@ class GamesController < ApplicationController
     end
 
     def game_params
-      params.require(:game).permit(:title, :developer, :status, game_attributes_attributes: [ :id, :genre, :esrb_rating, :multiplayer ])
+      params.require(:game).permit(:title, :developer, :status, :id, :genre, :esrb_rating, :multiplayer)
     end
 end

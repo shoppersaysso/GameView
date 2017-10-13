@@ -10,5 +10,7 @@
     <p><h3><strong><%=link_to review.title, game_review_path(review.game, review) %></strong></h3></p>
     <p><em><%= review.content %></em></p>
     <p>Review for "<%= link_to review.game.title, game_path(review.game)%>"</p>
+    <div id="body-<%= review.id %>"><p><em><%= truncate(review.content) %></em></p></div>
+    <button id="<%= review.id %>" class="review-more" data-id="<% review.id %>">More...</button>
   <% end %>
 <% end %>
