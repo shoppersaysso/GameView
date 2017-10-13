@@ -27,12 +27,26 @@ $(document).ready(function(){
 // //reviews truncated
   $(function() {
     $(".review-more").on("click", function() {
-       var reviewId = $(this.id).selector;
-       console.log($.get("/games/#{REGISTRY.game_id}/reviews/" + reviewId + "/content", function(contentText) {
-          $("#content-" + reviewId).text(contentText)
-        }))
+      //  var reviewId = $(this.id).selector;
+       var url = $(this).selector //gets the url but syntax errors
+       debugger
+       $.getJSON(url + "/content", function(contentText) {
+         console.log(contentText)
+          $("#reviews-" + reviewId).text(contentText)
+        })
     });
   });
+
+  // $(function() {
+  //   $(".review-more").on("click", function() {
+  //      var reviewId = $(this.id).selector;
+  //      $.getJSON("/games/#{REGISTRY.game_id}/reviews/" + reviewId + "/content", function(contentText) {
+  //        console.log(contentText)
+  //         $("#reviews-" + reviewId).text(contentText)
+  //       })
+  //   });
+  // });
+  //
 
 
 

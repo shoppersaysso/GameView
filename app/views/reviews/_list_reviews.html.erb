@@ -8,14 +8,13 @@
 <% else %>
   <% current_user.reviews.each do |review|%>
     <p><h3><strong><%=link_to review.title, game_review_path(review.game, review) %></strong></h3></p>
-    <p><em><%= review.content %></em></p>
     <p>Review for "<%= link_to review.game.title, game_path(review.game)%>"</p>
-    <div id="game_id"><%= review.game.id %></div>
-    <div id="content-<%= review.id %>"><p><em><%= truncate review.content %></em></p></div>
-    <button id="<%= review.id %>" class="review-more" data-id="<% review.id %>">Read More...</button>
+    <div id="game_id" class="hidden" data-url="<%= game_review_path(review.game, review)%>"><%= review.game.id %></div>
+    <div id="reviews-<%= review.id %>"><p><em><%= truncate review.content %></em></p></div>
+    <button id="<%= game_review_path(review.game, review)%>" class="review-more" data-id="<% review.id %>">Read More...</button>
   <% end %>
 <% end %>
 
-<script>
+<!-- <script>
   REGISTRY = { game_id: "<%= @game_id %>" }
-</script>
+</script> -->
