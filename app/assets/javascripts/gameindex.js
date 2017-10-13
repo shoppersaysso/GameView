@@ -25,24 +25,14 @@ $(document).ready(function(){
 
 //
 // //reviews truncated
-//   $(function() {
-//     $(".review-more").on("click", function() {
-//        var reviewId = $(this.id).selector;
-//        debugger
-//        $.get("/reviews/" + reviewId + "/content", function(contentText) {
-//           $("#body-" + reviewId).html(contentText);
-//         });
-//     });
-//   });
-//
-
-
-
-
-
-
-
-
+  $(function() {
+    $(".review-more").on("click", function() {
+       var reviewId = $(this.id).selector;
+       console.log($.get("/games/#{REGISTRY.game_id}/reviews/" + reviewId + "/content", function(contentText) {
+          $("#content-" + reviewId).text(contentText)
+        }))
+    });
+  });
 
 
 

@@ -1,13 +1,8 @@
 class ReviewsController < ApplicationController
-  before_action :disable_flash, :load_game, only: [:show, :new, :edit, :update, :destroy]
+  before_action :disable_flash, :load_game, only: [:show, :new, :edit, :update, :destroy, :content]
 
   def show
     @review = @game.reviews.find(params[:id])
-
-    respond_to do |format|
-      format.html { render :show }
-      format.json  { render :json => @review }
-    end
   end
 
   def new
@@ -66,7 +61,8 @@ class ReviewsController < ApplicationController
 
   def content
     review = Review.find(params[:id])
-    render json: review.content
+    @game_id = params[:id]
+    render plain: review.content
   end
 
 private
