@@ -11,7 +11,7 @@ $(document).ready(function(){
         $("#signup").addClass("hidden");
 
     });
-});
+
 // games more details
   $(function() {
      $(".js-more").on('click', function() {
@@ -27,29 +27,16 @@ $(document).ready(function(){
 // //reviews truncated
   $(function() {
     $(".review-more").on("click", function() {
-      //  var reviewId = $(this.id).selector;
-       var url = $(this).selector //gets the url but syntax errors
-       debugger
-       $.getJSON(url + "/content", function(contentText) {
-         console.log(contentText)
-          $("#reviews-" + reviewId).text(contentText)
+       var reviewId = $(this.id).selector;
+       var gameId = $(this).next('.hidden').text();
+       $.get("/games/" + gameId + "/reviews/" + reviewId + "/content", function(data) {
+          $("#content-" + reviewId).text(data)
         })
     });
   });
 
-  // $(function() {
-  //   $(".review-more").on("click", function() {
-  //      var reviewId = $(this.id).selector;
-  //      $.getJSON("/games/#{REGISTRY.game_id}/reviews/" + reviewId + "/content", function(contentText) {
-  //        console.log(contentText)
-  //         $("#reviews-" + reviewId).text(contentText)
-  //       })
-  //   });
-  // });
-  //
 
 
 
 
-
-// end of document ready function
+}); // end of document ready function
