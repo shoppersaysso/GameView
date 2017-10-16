@@ -2,7 +2,7 @@
   <h1 class="userEmail"><%= @user.email %>'s Profile:</h1>
   <hr>
     <div id="user-<%= @user.id %>">
-      <class="userAvatar"><%= image_tag(@user.avatar.url(:thumb)) %>
+      <img class="userAvatar" src="<%= @user.avatar_url %>" >
       <h4>Gameview Level:<class="userLevel"><% @user.level %>
     </div>
 

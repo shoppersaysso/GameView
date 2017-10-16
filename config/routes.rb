@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/games/:game_id/reviews/:id/content', to: 'reviews#content'
   get '/users/:id/review_list', to: 'users#review_list'
 
+  get '/users/:id/avatar_url', to: 'users#avatar_url'
+
   get '/users/sign_out', to: 'application#index'
   get '/users/index', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user'

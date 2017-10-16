@@ -17,7 +17,12 @@ class UsersController < ApplicationController
   def review_list
     @user = User.find(params[:id])
     @reviews = @user.reviews
-    render json: @user
+    render :json => @user.to_json(:methods => [:level, :avatar_url])
+  end
+
+  def avatar_url
+    user = User.find(params[:id])
+    render plain: user.avatar_url
   end
 
 end

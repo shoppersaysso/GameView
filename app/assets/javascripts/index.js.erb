@@ -39,8 +39,9 @@ $(document).ready(function(){
        var nextId = parseInt($(".js-next-user").attr("data-id")) + 1;
        $.getJSON("/users/" + nextId + "/review_list", function(data) {
          $(".userEmail").text(data["email"]);
-        console.log($(".userAvatar").text(data["avatar_remote_url"]));
-         $(".userLevel").getString(data["level"]);
+         var next_avatar = data["avatar_url"];
+         $(".userAvatar").attr('src', next_avatar);
+         $(".userLevel").text(data["level"]);
 
         // re-set the id to current on the link
         $(".js-next-user").attr("data-id", data["id"]);

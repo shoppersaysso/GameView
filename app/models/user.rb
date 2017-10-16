@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  attr_reader :avatar_remote_url
+  attr_reader :avatar
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-  has_attached_file :avatar, default_url: ':style/default.png', styles: { thumb: "100x100>" }
+  has_attached_file :avatar, default_url: 'users/thumb/default.png', styles: { thumb: "100x100>" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   has_many :games
   has_many :reviews
@@ -44,9 +44,10 @@ class User < ActiveRecord::Base
       return level
   end
 
-  def avatar_remote_url=(url_value)
-    self.avatar = URI.parse(url_value)
-    @avatar_remote_url = url_value
+  def avatar_url
+    avatar.url(:thumb)
   end
+
+
 
 end
