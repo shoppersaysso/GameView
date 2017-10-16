@@ -4,8 +4,6 @@
         <div class="">
           <h1>Welcome to GameView
             <p class="lead"><%= current_user.email %></p>
-
-              <%= image_tag(current_user.avatar.url(:thumb)) %>
           </h1>
         </div>
 
@@ -38,20 +36,8 @@
                 <div class="panel panel-default">
                   <div class="panel-heading"><h3>GameView Level</h3></div>
                   <div class="panel-body">
-
-                    <h3><% case current_user.gameview_level
-                        when 0 %>
-                    		Newbie
-                    		<% when 1, 2, 3 %>
-                    		Beginner Gamer
-                        <% when 4, 5, 6 %>
-                        Average Gamer
-                        <% when 7, 8, 9 %>
-                        Advanced Gamer
-                        <% when 10 %>
-                        Power Gamer
-                    		<% end %></h3>
-
+                    <%= image_tag(current_user.avatar.url(:thumb)) %>
+                    <h3><%= current_user.level %>
                     <br></br>
                     </div>
                   </div>

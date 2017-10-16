@@ -15,6 +15,3 @@
 //= require_tree .
 //= require_bootstrap
 //= require index
-//= require user
-//= require games
-//= require reviews

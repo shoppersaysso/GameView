@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :gameview_level
+  attributes :id, :email, :level, :avatar_remote_url
   has_many :reviews
   has_many :games
 

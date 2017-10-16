@@ -1,20 +1,10 @@
-    <% if @user.reviews.empty? %>
-    <h2 class="userEmail"><%= @user.email %> doesn't have any reviews!</h2>
-    <% else %>
-  <h1 class="userEmail"><%= @user.email %>'s Reviews:</h1>
-  <hr>
+
+  <h1 class="userEmail"><%= @user.email %>'s Profile:</h1>
   <hr>
     <div id="user-<%= @user.id %>">
-      <div id="review">
-        <div class="userReviews"><% @reviews.each do |r| %>
-          <h2 class="reviewTitle"><strong><%= r.title %></strong></h2>
-          <h4 class="gameTitle"><em><%= r.game.title %></em></h4>
-          <h3 class="reviewContent"><%= r.content %></h3>
-          <% end %>
-        <% end %>
-      </div>
+      <class="userAvatar"><%= image_tag(@user.avatar.url(:thumb)) %>
+      <h4>Gameview Level:<class="userLevel"><% @user.level %>
     </div>
-  </div>
 
   <br>
   <hr>

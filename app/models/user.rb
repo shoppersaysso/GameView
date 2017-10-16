@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  attr_reader :avatar_remote_url
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
@@ -24,6 +25,28 @@ class User < ActiveRecord::Base
   def level_down
     self.gameview_level -= 1
     self.save
+  end
+
+  def level
+    level = []
+    case self.gameview_level
+      when 0
+      level = "Newbie"
+      when 1, 2, 3
+      level = "Beginner Gamer"
+      when 4, 5, 6
+      level = "Average Gamer"
+      when 7, 8, 9
+      level = "Advanced Gamer"
+      when 10
+      level = "Power Gamer"
+      end
+      return level
+  end
+
+  def avatar_remote_url=(url_value)
+    self.avatar = URI.parse(url_value)
+    @avatar_remote_url = url_value
   end
 
 end
