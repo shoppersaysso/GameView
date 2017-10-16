@@ -5,12 +5,14 @@
   <hr>
   <hr>
     <div id="user-<%= @user.id %>">
-      <div class="userReviews"><% @reviews.each do |r| %>
-        <h2 class="reviewTitle"><strong><%= r.title %></strong></h2>
-        <h4 class="gameTitle"><em><%= r.game.title %></em></h4>
-        <h3 class="reviewContent"><%= r.content %></h3>
-      <% end %>
-    <% end %>
+      <div id="review">
+        <div class="userReviews"><% @reviews.each do |r| %>
+          <h2 class="reviewTitle"><strong><%= r.title %></strong></h2>
+          <h4 class="gameTitle"><em><%= r.game.title %></em></h4>
+          <h3 class="reviewContent"><%= r.content %></h3>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 

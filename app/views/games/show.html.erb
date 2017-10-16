@@ -14,7 +14,12 @@
     <br>
     <br>
 
-  <h4><%= link_to 'Review Game', new_game_review_path(@game) %></h4>
+  <div class="renderReviewForm" >
+    <h4>Review this game:</h4>
+      <%= render :partial => 'reviews/form', locals: { review: @game.reviews.new, game: @game } %>
+  </div>
+
+<br><br>
   <br>
   <%= link_to 'Back', games_path %> |
   <%= link_to 'Edit', edit_game_path(@game) %> |
