@@ -1,19 +1,19 @@
     <% if @user.reviews.empty? %>
-    <h2><%= @user.email %> doesn't have any reviews!</h2>
+    <h2 class="userEmail"><%= @user.email %> doesn't have any reviews!</h2>
     <% else %>
-  <h1><%= @user.email %>'s Reviews:</h1>
-  <br>
-    <div>
-      <% @user.reviews.each do |review| %>
-        <h2><strong><%= review.title %></strong></h2>
-        <h4><em><%= review.game.title %></em></h4>
-        <h3><%= review.content %></h3>
+  <h1 class="userEmail"><%= @user.email %>'s Reviews:</h1>
+  <hr>
+  <hr>
+    <div id="user-<%= @user.id %>">
+      <div class="userReviews"><% @reviews.each do |r| %>
+        <h2 class="reviewTitle"><strong><%= r.title %></strong></h2>
+        <h4 class="gameTitle"><em><%= r.game.title %></em></h4>
+        <h3 class="reviewContent"><%= r.content %></h3>
       <% end %>
     <% end %>
+    </div>
+  </div>
 
-
-<br>
-
-<%= link_to 'Back', users_index_path %>
-
-</div>
+  <br>
+  <hr>
+    <h3 class="text-center"><a href="#" class="js-previous-user" data-id="<%= @user.id %>">Previous User</a> | <%= link_to 'Back', users_index_path %> | <a href="#" class="js-next-user" data-id="<%= @user.id %>">Next User</a></h3>

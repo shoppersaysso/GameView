@@ -14,7 +14,7 @@
       <p><em><%= truncate review.content %></em></p>
     </div>
     <br>
-    <button id="<%= review.id %>" class="review-more" data-id="<% review.id %>">Read More...</button>
+    <button id="<%= review.id %>" class="js-review-more" data-id="<% review.id %>">Read More...</button>
     <div id="<% review.game.id %>" class="hidden"><%= review.game.id %></div>
     <hr>
   <% end %>
