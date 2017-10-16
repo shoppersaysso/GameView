@@ -4,6 +4,8 @@
         <div class="">
           <h1>Welcome to GameView
             <p class="lead"><%= current_user.email %></p>
+
+              <%= image_tag(current_user.avatar.url(:thumb)) %>
           </h1>
         </div>
 

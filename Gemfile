@@ -22,6 +22,8 @@ gem 'devise'
 
 gem 'cancan'
 
+gem 'paperclip'
+
 gem 'omniauth'
 
 gem 'pry'
