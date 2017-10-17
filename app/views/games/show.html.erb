@@ -21,13 +21,16 @@
 </div>
 
    <%= link_to "Load Review", game_review_path(@game), :class => "load_reviews" %>
-   <div class="reviews">
+   <div class="reviewShow">
      <h2 class="reviewTitle"></h2>
      <h4 class="reviewContent"></h4>
    </div>
 
 <div id="links">
-   <h5><%= link_to 'Review Game', new_game_review_path(@game) %></h5>
+   <h5><%= link_to 'Review Game', new_game_review_path(@game), :class => 'review_game' %></h5>
+   <div class="newReview">
+
+   </div>
    <br>
    <%= link_to 'Back', home_path %> |
    <%= link_to 'Edit', edit_game_path(@game) %> |

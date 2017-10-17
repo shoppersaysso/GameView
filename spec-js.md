@@ -9,9 +9,10 @@ Specs:
 // Game show page has 'Load Review' button
 - [x] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
 // Game has many reviews, user has many reviews and has many games
-- [ ] Use your Rails API and a form to create a resource and render the response without a page refresh.
+- [X] Use your Rails API and a form to create a resource and render the response without a page refresh.
 // Can submit a new review on game show page
 - [ ] Translate JSON responses into js model objects.
+// Creating a new game renders the new game on same page below new game form.
 - [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
 
 Confirm
