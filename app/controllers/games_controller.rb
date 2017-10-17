@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   before_action :disable_flash
 
   def index
-    @games = Game.where("user_id IN (?)", current_user.id)
+    @games = Game.all
   end
 
   def show
@@ -60,6 +60,11 @@ class GamesController < ApplicationController
   def details
     game = Game.find(params[:id])
     render plain: game.details
+  end
+
+  def game_data
+    @game = Game.find(params[:id])
+    render :json => @game
   end
 
   private

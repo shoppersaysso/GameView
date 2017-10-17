@@ -1,26 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= @game.title %></h3>
-  <p><strong>Developer: </strong><%= @game.developer %></p>
-    <p><strong>Genre: </strong><%= @game.genre%></p>
-    <p><strong>ESRB Rating: </strong><%= @game.esrb_rating%></p>
-    <p><strong>Players: </strong><%= @game.is_multiplayer?%></p>
-
-  <%= form_for(@game) do |f| %>
-    <p><%= f.label :status %>
-       <%= f.select :status,[['New', 'new'], ['Playing', 'playing'], ['Beat', 'beat'],]  %></p>
-       <%= f.submit value="Update Status"%>
-      <% end %>
+  <h3 class="gameTitle"><%= @game.title %></h3>
     <br>
+    <p><strong>Developer:</strong><div class="gameDeveloper"><%= @game.developer %></p></div>
+    <br>
+    <p><strong>Genre: </strong><div class="gameGenre"><%= @game.genre%></p></div>
+    <br>
+    <p><strong>ESRB Rating: </strong><div class="gameRating"><%= @game.esrb_rating%></p></div>
+    <br>
+    <p><strong>Players: </strong><div class="gamePlayers"><%= @game.is_multiplayer?%></p></div>
     <br>
 
-  <div class="renderReviewForm" >
-    <h4>Review this game:</h4>
-      <%= render :partial => 'reviews/form', locals: { review: @game.reviews.new, game: @game } %>
-  </div>
+    <br>
+    <button class="js-next-game" data-id="<%= @game.id %>">Next Game...</button>
+    <br>
+    <br>
+    <br>
 
-<br><br>
-  <br>
-  <%= link_to 'Back', games_path %> |
-  <%= link_to 'Edit', edit_game_path(@game) %> |
-  <%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <%= link_to 'Back', games_path %>

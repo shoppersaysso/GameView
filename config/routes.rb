@@ -10,9 +10,7 @@ Rails.application.routes.draw do
 
   get '/games/:id/details', to: 'games#details'
   get '/games/:game_id/reviews/:id/content', to: 'reviews#content'
-  get '/users/:id/review_list', to: 'users#review_list'
-
-  get '/users/:id/avatar_url', to: 'users#avatar_url'
+  get '/games/:id/game_data', to: 'games#game_data'
 
   get '/users/sign_out', to: 'application#index'
   get '/users/index', to: 'users#index'

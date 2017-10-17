@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-// toggle signup and login on inex page
+// toggle signup and login on index page
     $("#showSignUp").click(function(){
         $("#login").addClass("hidden");
         $("#signup").removeClass("hidden");
@@ -12,57 +12,7 @@ $(document).ready(function(){
 
     });
 
-// games more details
-  $(function() {
-     $(".js-game-more").on('click', function() {
-       var gameId = $(this.id).selector;
-       $.get("/games/" + gameId + "/details", function(data) {
-           $("#details-" + gameId).text(data)
-       });
-     });
-   });
 
- // reviews truncated
-   $(function() {
-     $(".js-review-more").on("click", function() {
-        var reviewId = $(this.id).selector;
-        var gameId = $(this).next('.hidden').text();
-        $.get("/games/" + gameId + "/reviews/" + reviewId + "/content", function(data) {
-           $("#content-" + reviewId).text(data)
-       });
-     });
-   });
-
- // next user
-   $(function () {
-     $(".js-next-user").on("click", function() {
-       var nextId = parseInt($(".js-next-user").attr("data-id")) + 1;
-       $.getJSON("/users/" + nextId + "/review_list", function(data) {
-         $(".userEmail").text(data["email"]);
-         var next_avatar = data["avatar_url"];
-         $(".userAvatar").attr('src', next_avatar);
-         $(".userLevel").text(data["level"]);
-
-        // re-set the id to current on the link
-        $(".js-next-user").attr("data-id", data["id"]);
-     });
-     });
-   });
-
- // previous user
-   $(function () {
-     $(".js-previous-user").on("click", function() {
-       var prevId = parseInt($(".js-previous-user").attr("data-id")) - 1;
-       $.getJSON("/users/" + prevId + "/review_list", function(data) {
-         $(".userEmail").text(data["email"]);
-         $(".userAvatar").text(data["avatar"]);
-         $(".userLevel").text(data["level"]);
-
-        // re-set the id to current on the link
-        $(".js-previous-user").attr("data-id", data["id"]);
-      })
-     });
-   });
 
 
 

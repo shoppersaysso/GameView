@@ -1,11 +1,23 @@
 
-  <h1 class="userEmail"><%= @user.email %>'s Profile:</h1>
-  <hr>
-    <div id="user-<%= @user.id %>">
-      <img class="userAvatar" src="<%= @user.avatar_url %>" >
-      <h4>Gameview Level:<class="userLevel"><% @user.level %>
-    </div>
+<%= image_tag(@user.avatar.url(:thumb)) %>
 
-  <br>
-  <hr>
-    <h3 class="text-center"><a href="#" class="js-previous-user" data-id="<%= @user.id %>">Previous User</a> | <%= link_to 'Back', users_index_path %> | <a href="#" class="js-next-user" data-id="<%= @user.id %>">Next User</a></h3>
+<h2><%= @user.email %>'s Profile</h2>
+<br>
+<h4><%= @user.reviews.count%> Reviews:</h4>
+
+<% if @user.reviews.empty? %>
+   <h2><%= @user.email %> doesn't have any reviews!</h2>
+   <% else %>
+      <div>
+        <% @user.reviews.each do |review| %>
+          <h3><strong><%= review.title %></strong></h3>
+          <h4><em><%= review.game.title %></em></h4>
+          <p><%= review.content %></p>
+        <% end %>
+  <% end %>
+ </div>
+
+<br>
+<hr>
+
+<%= link_to 'Back', users_index_path %>
