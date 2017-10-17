@@ -11,18 +11,10 @@
     <p><strong>Players: </strong><div class="gamePlayers"><%= @game.is_multiplayer?%></p></div>
     <br>
 
-    <%= form_for(@game) do |f| %>
-     <p><%= f.label :status %>
-        <%= f.select :status,[['New', 'new'], ['Playing', 'playing'], ['Beat', 'beat'],]  %></p>
-        <%= f.submit value="Update Status"%>
-       <% end %>
-     <br>
-
-   <h5><%= link_to 'Review Game', new_game_review_path(@game) %></h5>
-   <br>
-   <%= link_to 'Back', home_path %> |
-   <%= link_to 'Edit', edit_game_path(@game) %> |
-   <%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <br>
+    <button class="js-next-game" data-id="<%= @game.id %>">Next Game...</button>
+    <br>
+    <br>
     <br>
 
   <%= link_to 'Back', games_path %>

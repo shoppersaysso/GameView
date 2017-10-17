@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   before_action :disable_flash
 
   def index
-    @games = Game.all
+    @games = Game.where("user_id IN (?)", current_user.id)
   end
 
   def show

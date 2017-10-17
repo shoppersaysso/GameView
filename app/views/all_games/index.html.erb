@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Games</h1>
+<hr>
+
+<% @games.each do |game|%>
+  <h4><strong><%= link_to game.title, all_games_show_path(game) %></strong></h4>
+  <br>
+  <% end %>
+
+<%= link_to 'Back', home_path %>
+
+<br>
