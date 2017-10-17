@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  get '/games/:game_id/reviews', to: 'reviews#show'
+
   get '/games/:id/details', to: 'games#details'
   get '/games/:game_id/reviews/:id/content', to: 'reviews#content'
   get '/games/:id/game_data', to: 'games#game_data'

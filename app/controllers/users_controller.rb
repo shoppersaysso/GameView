@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @reviews = @user.reviews
     respond_to do |format|
       format.html { render :show }
-      format.json { render :json => @user.to_json(:methods => [:level, :avatar_url]) }
+      format.json { render :json => @user }
     end
   end
 

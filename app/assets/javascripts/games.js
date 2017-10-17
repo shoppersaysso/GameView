@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  // next game on show page
+  // next game on show page for all_games
   $(function () {
     $(".js-next-game").on("click", function() {
       var nextId = parseInt($(".js-next-game").attr("data-id")) + 1;
