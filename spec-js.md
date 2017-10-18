@@ -11,10 +11,10 @@ Specs:
 // Game has many reviews, user has many reviews and has many games
 - [X] Use your Rails API and a form to create a resource and render the response without a page refresh.
 // Can submit a new review on game show page
-- [ ] Translate JSON responses into js model objects.
-// Creating a new game renders the new game on same page below new game form.
-- [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
-
+- [X] Translate JSON responses into js model objects.
+// User prototype using level
+- [X] At least one of the js model objects must have at least one method added by your code to the prototype.
+// Review prototype method with madeReview function
 Confirm
 - [x] You have a large number of small Git commits
 - [x] Your commit messages are meaningful

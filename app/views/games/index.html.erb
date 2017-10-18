@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1My Games</h1>
+<h1>My Games</h1>
 
   <div>
     <%= render :partial => 'games/list_games', locals: {games: @games} %>
   </div>
-
+  <%= link_to "[Add Game]", new_game_path %>
 <br>

@@ -18,4 +18,4 @@
 //= require games
 //= require home
 //= require reviews
-//= require new
+//= require user
