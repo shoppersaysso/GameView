@@ -1,5 +1,3 @@
-'use strict'
-
 $(document).ready(function(){
 
 // toggle signup and login on index page
@@ -14,12 +12,8 @@ $(document).ready(function(){
 
     });
 
-<<<<<<< HEAD:app/assets/javascripts/gameindex.js
-});
-=======
 
 
 
 
 }); // end of document ready function
->>>>>>> final-touches:app/assets/javascripts/index.js

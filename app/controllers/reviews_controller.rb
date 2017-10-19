@@ -1,25 +1,12 @@
 class ReviewsController < ApplicationController
-<<<<<<< HEAD
-  before_action :disable_flash, :load_game, only: [:show, :edit, :update, :destroy]
-
-  def show
-    @review = @game.reviews.find(params[:id])
-
-    respond_to do |format|
-      format.html { render :show }
-      format.xml  { render json:  @review }
-    end
-=======
   before_action :disable_flash, :load_game, only: [:show, :new, :edit, :update, :destroy, :content]
 
   def show
     @review = @game.reviews.find(params[:id])
->>>>>>> final-touches
   end
 
   def new
     @review = @game.reviews.build
-
     respond_to do |format|
       format.html
       format.xml  { render :xml => @review }
@@ -73,12 +60,8 @@ class ReviewsController < ApplicationController
 
   def content
     review = Review.find(params[:id])
-<<<<<<< HEAD
-    render json: review.content
-=======
     @game_id = params[:id]
     render plain: review.content
->>>>>>> final-touches
   end
 
 private

@@ -1,22 +1,9 @@
-<<<<<<< HEAD
-// more details button truncation
-
-$(function() {
-  $(".js-more").on("click", function() {
-    var gameId = $(this.id).selector;
-    $.get("/games/" + gameId + "/details", function(game) {
-        $("#body-" + gameId ).html(game);
-        $(".js-more").addClass("hidden");
-    });
-  });
-});
-=======
 // load new review form on game show page
 $(function() {
   $(".review_game").on("click", function(e) {
+    e.preventDefault();
     var url = this.href
     $(".newReview").load(url + ' #reviewForm');
-    e.preventDefault();
   });
   this.madeReview;
 });
@@ -41,4 +28,3 @@ $(document).ready(function(){
 
 
 }) // end of document ready
->>>>>>> final-touches

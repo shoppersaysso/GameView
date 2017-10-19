@@ -9,16 +9,11 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-<<<<<<< HEAD
-  get 'games/:id/details', to: 'games#details'
-  get 'reviews/:id/content', to: 'reviews#content'
-=======
   get '/games/:id/details', to: 'games#details'
   get '/games/:game_id/reviews/:id/content', to: 'reviews#content'
   get '/games/:id/game_data', to: 'games#game_data'
   get '/all_games/index', to: 'all_games#index', as: 'all_games'
   get '/all_games/:id/show', to: 'all_games#show', as: 'all_games_show'
->>>>>>> final-touches
 
   get '/users/sign_out', to: 'application#index'
   get '/users/index', to: 'users#index'

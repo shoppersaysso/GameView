@@ -1,2 +1,0 @@
-class GameReview < ApplicationRecord
-end

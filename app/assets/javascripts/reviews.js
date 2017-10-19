@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-//reviews truncated
-$(function () {
-  $(".review-more").on("click", function() {
-    var reviewId = $(this.id).selector;
-    $.getJSON("/reviews/" + reviewId + "/content", function(data) {
-      $("#body-" + reviewId).html(data);
-    });
-  });
-});
-=======
 // load game details on review show page
-
 $(function() {
   $(".load_game").on("click", function(e) {
       e.preventDefault();
@@ -33,4 +21,3 @@ $(function() {
   Review.prototype.madeReview = function() {
     alert("Thanks for reviewing"+ this.game_title+ "!");
   }
->>>>>>> final-touches
