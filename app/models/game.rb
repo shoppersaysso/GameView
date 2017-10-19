@@ -1,6 +1,6 @@
 class Game < ActiveRecord::Base
   belongs_to :user
-  has_one :review
+  has_many :reviews
   validates :title, :developer, :genre, :esrb_rating, presence: true
 
   def is_multiplayer?
@@ -11,5 +11,5 @@ class Game < ActiveRecord::Base
     details = "Developer: " + self.developer + ", Genre: " + self.genre + ", ESRB: " + self.esrb_rating + ", Multiplayer: " + self.is_multiplayer? + ", Status: " + self.status
     return details
   end
-  
+
 end

@@ -3,6 +3,7 @@
 <div id='game'>
   <h3 class="gameTitle"><%= @game.title %></h3>
     <br>
+    <div id="gameDetails"
     <p><strong>Developer:</strong><div class="gameDeveloper"><%= @game.developer %></p></div>
     <br>
     <p><strong>Genre: </strong><div class="gameGenre"><%= @game.genre%></p></div>
@@ -11,7 +12,7 @@
     <br>
     <p><strong>Players: </strong><div class="gamePlayers"><%= @game.is_multiplayer?%></p></div>
     <br>
-
+  </div>
     <%= form_for(@game) do |f| %>
      <p><%= f.label :status %>
         <%= f.select :status,[['New', 'new'], ['Playing', 'playing'], ['Beat', 'beat'],]  %></p>
@@ -19,12 +20,6 @@
        <% end %>
      <br>
 </div>
-
-   <%= link_to "Load Review", game_review_path(@game, @game.review_id), :class => "load_reviews" %>
-   <div class="reviewShow">
-     <h2 class="reviewTitle"></h2>
-     <h4 class="reviewContent"></h4>
-   </div>
 
    <h5><%= link_to 'Review Game', new_game_review_path(@game), :class => 'review_game' %></h5>
    <div class="newReview"></div>

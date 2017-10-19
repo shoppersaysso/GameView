@@ -6,7 +6,7 @@ Specs:
 - [x] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
 // All Games show page has 'Next Game' button that renders the next game on the same page
 - [x] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
-// Game show page has 'Load Review' button
+// Review show page has 'Load Game' button
 - [x] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
 // Game has many reviews, user has many reviews and has many games
 - [X] Use your Rails API and a form to create a resource and render the response without a page refresh.

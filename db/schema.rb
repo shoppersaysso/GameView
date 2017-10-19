@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20171016021607) do
     t.string "esrb_rating"
     t.boolean "multiplayer"
     t.string "status", default: "new"
+    t.integer "review_id", default: 0
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

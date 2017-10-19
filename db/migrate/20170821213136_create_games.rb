@@ -7,6 +7,7 @@ class CreateGames < ActiveRecord::Migration[5.1]
       t.string :esrb_rating
       t.boolean :multiplayer
       t.string :status, :default => "new"
+      t.integer :review_id, :default => 0
 
       t.belongs_to :user, index: true, foreign_key: true
 

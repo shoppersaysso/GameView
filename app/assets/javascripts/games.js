@@ -1,3 +1,13 @@
+// load new review form on game show page
+$(function() {
+  $(".review_game").on("click", function(e) {
+    var url = this.href
+    $(".newReview").load(url + ' #reviewForm');
+    e.preventDefault();
+  });
+  this.madeReview;
+});
+
 $(document).ready(function(){
   // next game on show page for all_games
   $(function () {
