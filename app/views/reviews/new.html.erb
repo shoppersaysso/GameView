@@ -1,5 +1,7 @@
+<div id="reviewForm">
 <h1>New Review</h1>
 
-<%= render partial: 'form'  %>
+<%= render :partial => 'reviews/form', locals: { review: @reiew, game: @review.game } %>
+</div>
 
 <%= link_to 'Back', home_path %>

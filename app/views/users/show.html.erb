@@ -1,19 +1,23 @@
-    <% if @user.reviews.empty? %>
-    <h2><%= @user.email %> doesn't have any reviews!</h2>
-    <% else %>
-  <h1><%= @user.email %>'s Reviews:</h1>
-  <br>
-    <div>
-      <% @user.reviews.each do |review| %>
-        <h2><strong><%= review.title %></strong></h2>
-        <h4><em><%= review.game.title %></em></h4>
-        <h3><%= review.content %></h3>
-      <% end %>
-    <% end %>
 
+<%= image_tag(@user.avatar.url(:thumb)) %>
+
+<h2><%= @user.email %>'s Profile</h2>
+<br>
+<h4><%= @user.reviews.count%> Reviews:</h4>
+
+<% if @user.reviews.empty? %>
+   <h2><%= @user.email %> doesn't have any reviews!</h2>
+   <% else %>
+      <div>
+        <% @user.reviews.each do |review| %>
+          <h3><strong><%= review.title %></strong></h3>
+          <h4><em><%= review.game.title %></em></h4>
+          <p><%= review.content %></p>
+        <% end %>
+  <% end %>
+ </div>
 
 <br>
+<hr>
 
 <%= link_to 'Back', users_index_path %>
-
-</div>

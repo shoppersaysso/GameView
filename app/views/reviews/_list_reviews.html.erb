@@ -8,9 +8,21 @@
 <% else %>
   <% current_user.reviews.each do |review|%>
     <p><h3><strong><%=link_to review.title, game_review_path(review.game, review) %></strong></h3></p>
+<<<<<<< HEAD
     <div id="body-<%= review.id %>"><p><em><%= truncate review.content %></em></p></div>
     <button id="<%= review.id %>" class="review-more" data-id="<% review.id %>">More...</button>
     <p>Review for "<%= link_to review.game.title, game_path(review.game)%>"</p>
     <div id="content-<%= review.id %>-content">
+=======
+    <p><strong>Review for "<%= link_to review.game.title, game_path(review.game)%>"</strong></p>
+    <br>
+    <div id="content-<%= review.id %>">
+      <p><em><%= truncate review.content %></em></p>
+    </div>
+    <br>
+    <button id="<%= review.id %>" class="js-review-more" data-id="<% review.id %>">Read More...</button>
+    <div id="<% review.game.id %>" class="hidden"><%= review.game.id %></div>
+    <hr>
+>>>>>>> final-touches
   <% end %>
 <% end %>

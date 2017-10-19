@@ -5,4 +5,9 @@ class Review < ActiveRecord::Base
   has_many :users, through: :game
 
   validates :title, :content, presence: true
+
+  def game_title
+    return self.game
+  end
+
 end

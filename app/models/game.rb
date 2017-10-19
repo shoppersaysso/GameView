@@ -8,7 +8,11 @@ class Game < ActiveRecord::Base
   end
 
   def details
+<<<<<<< HEAD
     details = "Developer:" + self.developer + ", Genre:" + self.genre + ", ESRB:" + self.esrb_rating + ", Multiplayer:" + self.is_multiplayer?
+=======
+    details = "Developer: " + self.developer + ", Genre: " + self.genre + ", ESRB: " + self.esrb_rating + ", Multiplayer: " + self.is_multiplayer? + ", Status: " + self.status
+>>>>>>> final-touches
     return details
   end
 

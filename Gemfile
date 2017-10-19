@@ -22,6 +22,8 @@ gem 'devise'
 
 gem 'cancan'
 
+gem 'paperclip'
+
 gem 'omniauth'
 
 gem 'pry'
@@ -35,6 +37,8 @@ gem 'dotenv-rails'
 gem 'twitter-bootstrap-rails'
 
 gem 'jquery-rails'
+
+gem 'active_model_serializers'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

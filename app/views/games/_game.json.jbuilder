@@ -1,2 +1,2 @@
-json.extract! game, :id, :created_at, :updated_at
+json.extract! game, :id, :title, :details
 json.url game_url(game, format: :json)

@@ -2,7 +2,7 @@
                        :url => session_path(resource_name) ,
                        :html => {:id => "sign_in_user"},
                        :format => :json,
-                       :remote => true ) do |f| %>
+                       ) do |f| %>
   <div class="field">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true %>

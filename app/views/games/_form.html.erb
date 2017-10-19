@@ -4,6 +4,7 @@
       <p><%= f.label :title %>
          <%= f.text_field :title %></p>
       <p><%= f.label :developer %>
+<<<<<<< HEAD
          <%= f.text_field :developer %></p>
       <p><%= f.label :genre %>
          <%= f.text_field :genre %>
@@ -11,6 +12,17 @@
          <%= f.text_field :esrb_rating %>
       <p><%= f.label :multiplayer %>
           <%= f.select :multiplayer, [['Yes', true], ['No', false]] %></p>
+=======
+          <%= f.text_field :developer %></p>
+            <%= f.label :genre %>
+            <%= f.text_field :genre %>
+
+            <%= f.label :esrb_rating %>
+            <%= f.text_field :esrb_rating %>
+
+            <%= f.label :multiplayer %>
+            <%= f.select :multiplayer, [['Yes', true], ['No', false]] %></p>
+>>>>>>> final-touches
 
         <%= f.submit %>
 

@@ -10,7 +10,11 @@ class GamesController < ApplicationController
     @games = Game.where("user_id IN (?)", current_user.id)
     respond_to do |format|
       format.html { render :show }
+<<<<<<< HEAD
       format.json { render json: @games}
+=======
+      format.json { render json: @games }
+>>>>>>> final-touches
     end
   end
 
@@ -57,9 +61,20 @@ class GamesController < ApplicationController
   end
 
   def details
+<<<<<<< HEAD
    game = Game.find(params[:id])
    render json: game.details
  end
+=======
+    game = Game.find(params[:id])
+    render plain: game.details
+  end
+
+  def game_data
+    @game = Game.find(params[:id])
+    render :json => @game
+  end
+>>>>>>> final-touches
 
   private
 
@@ -68,6 +83,10 @@ class GamesController < ApplicationController
     end
 
     def game_params
+<<<<<<< HEAD
       params.require(:game).permit(:title, :developer, :status, :genre, :esrb_rating, :multiplayer)
+=======
+      params.require(:game).permit(:title, :developer, :status, :id, :genre, :esrb_rating, :multiplayer)
+>>>>>>> final-touches
     end
 end

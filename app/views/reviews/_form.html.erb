@@ -1,4 +1,4 @@
-<%= form_for([@review.game, @review]) do |f| %>
+<%= form_for([@game, @review]) do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -19,6 +19,7 @@
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
+  <%= f.hidden_field :game_id, :value => @game.id %>
   <div class="actions">
     <%= f.submit %>
   </div>
