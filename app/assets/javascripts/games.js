@@ -5,7 +5,6 @@ $(function() {
     var url = this.href
     $(".newReview").load(url + ' #reviewForm');
   });
-  this.madeReview;
 });
 
 $(document).ready(function(){

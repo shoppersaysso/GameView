@@ -7,7 +7,7 @@ class Review < ActiveRecord::Base
   validates :title, :content, presence: true
 
   def game_title
-    return self.game
+    return self.game.title
   end
 
 end

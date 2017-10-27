@@ -12,9 +12,3 @@ User.prototype.levelUp = function() {
     alert("You've leveled up!");
   });
 }
-
-User.prototype.leveldown = function() {
-  Event.observe(this.level,'change', function() {
-    alert("You've leveled down!");
-  });
-}
