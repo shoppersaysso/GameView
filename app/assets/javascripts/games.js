@@ -1,27 +1,27 @@
-// load new review form on game show page
-$(function() {
-  $(".review_game").on("click", function(e) {
-    e.preventDefault();
-    var url = this.href
-    $(".newReview").load(url + ' #reviewForm');
-  });
-});
-
-function addNewReviewSubmitListener() {
-  $('.new_review').on("submit", function(e) {
-    e.preventDefault();
-    var url = this.action + '.json'
-    var data = $(this).serialize()
-    $.ajax({
-      type: "POST",
-      url: url,
-      data: data,
-      success: function(review) {
-        $('.newReview').html(review);
-      }
-    })
-  })
-}
+// // load new review form on game show page
+// $(function() {
+//   $(".review_game").on("click", function(e) {
+//     e.preventDefault();
+//     var url = this.href
+//     $(".newReview").load(url + ' #reviewForm');
+//   });
+// });
+//
+// function addNewReviewSubmitListener() {
+//   $('.new_review').on("submit", function(e) {
+//     e.preventDefault();
+//     var url = this.action + '.json'
+//     var data = $(this).serialize()
+//     $.ajax({
+//       type: "POST",
+//       url: url,
+//       data: data,
+//       success: function(review) {
+//         $('.newReview').html(review);
+//       }
+//     })
+//   })
+// }
 
 $(document).ready(function(){
   // next game on show page for all_games
@@ -38,6 +38,6 @@ $(document).ready(function(){
      $(".js-next-game").attr("data-id", data["id"]);
    });
   });
-
-  addNewReviewSubmitListener()
+  // 
+  // addNewReviewSubmitListener()
 }) // end of document ready

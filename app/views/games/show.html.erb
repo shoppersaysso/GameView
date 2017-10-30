@@ -1,37 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<div id='game'>
-  <h3 class="gameTitle"><%= @game.title %></h3>
-    <br>
-    <div id="gameDetails"
-    <p><strong>Developer:</strong><div class="gameDeveloper"><%= @game.developer %></p></div>
-    <br>
-    <p><strong>Genre: </strong><div class="gameGenre"><%= @game.genre%></p></div>
-    <br>
-    <p><strong>ESRB Rating: </strong><div class="gameRating"><%= @game.esrb_rating%></p></div>
-    <br>
-    <p><strong>Players: </strong><div class="gamePlayers"><%= @game.is_multiplayer?%></p></div>
-    <br>
-  </div>
-    <%= form_for(@game) do |f| %>
-     <p><%= f.label :status %>
-        <%= f.select :status,[['New', 'new'], ['Playing', 'playing'], ['Beat', 'beat'],]  %></p>
-        <%= f.submit value="Update Status"%>
-       <% end %>
-     <br>
-</div>
+  <div id='game'>
+    <h3 class="gameTitle"><%= @game.title %></h3>
+      <br>
+      <div id="gameDetails"
+        <p><strong>Developer:</strong><div class="gameDeveloper"><%= @game.developer %></p></div>
+        <br>
+        <p><strong>Genre: </strong><div class="gameGenre"><%= @game.genre%></p></div>
+        <br>
+        <p><strong>ESRB Rating: </strong><div class="gameRating"><%= @game.esrb_rating%></p></div>
+        <br>
+        <p><strong>Players: </strong><div class="gamePlayers"><%= @game.is_multiplayer?%></p></div>
+        <br>
+      </div>
 
+      <%= form_for(@game) do |f| %>
+       <p><%= f.label :status %>
+          <%= f.select :status,[['New', 'new'], ['Playing', 'playing'], ['Beat', 'beat'],]  %></p>
+          <%= f.submit value="Update Status"%>
+         <% end %>
+       <br>
+  </div>
+
+  <div id='reviews'>
+    <button class="load-reviews" data-id="<%= @game.id %>">Load Reviews...</button>
+
+  </div>
+
+  <div id='reviewGame'>
    <h5><%= link_to 'Review Game', new_game_review_path(@game), :class => 'review_game' %></h5>
-   <div class="newReview"></div>
 
    <%= render :partial => 'reviews/form', locals: { review: @game.reviews.build, game: @game } %>
 
-   <div id="links">
-   <br>
-   <%= link_to 'Back', home_path %> |
-   <%= link_to 'Edit', edit_game_path(@game) %> |
-   <%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-    <br>
+   <div class="newReview">
+     <div id="title"></div>
+     <div id="content"></div>
+   </div>
 
-  <%= link_to 'Back', games_path %>
-</div>
+ </div>
+
+   <div id="links">
+     <br>
+     <%= link_to 'Back', home_path %> |
+     <%= link_to 'Edit', edit_game_path(@game) %> |
+     <%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <br>
+
+    <%= link_to 'Back', games_path %>
+  </div>
