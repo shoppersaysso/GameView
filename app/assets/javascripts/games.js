@@ -1,27 +1,30 @@
-// // load new review form on game show page
-// $(function() {
-//   $(".review_game").on("click", function(e) {
-//     e.preventDefault();
-//     var url = this.href
-//     $(".newReview").load(url + ' #reviewForm');
-//   });
-// });
-//
-// function addNewReviewSubmitListener() {
-//   $('.new_review').on("submit", function(e) {
-//     e.preventDefault();
-//     var url = this.action + '.json'
-//     var data = $(this).serialize()
-//     $.ajax({
-//       type: "POST",
-//       url: url,
-//       data: data,
-//       success: function(review) {
-//         $('.newReview').html(review);
-//       }
-//     })
-//   })
-// }
+//render a new review on the same page without refreshing
+$(function () {
+  $('.new_review').on("submit", function(e) {
+    e.preventDefault();
+    var values = $(this).serialize();
+    var posting = $.post(this.action + '.json', values);
+    posting.done(function(data) {
+      var review = data;
+      $('#reviews').append(`<div><h1>${review.title}<h1><p><em>${review.content}<em></p></div><br>`)
+    })
+    $('.new_review')[0].reset();
+    return false;
+  })
+})
+// load reviews button on game show page loads list of reviews
+function loadReviewsListener() {
+  $(".load-reviews").on("click", function(e) {
+    e.preventDefault();
+    var gameId = parseInt($(".load-reviews").attr("data-id"));
+    $.get("/games/" + gameId + "/reviews" + ".json", function(reviews) {
+    var renderedReviews = reviews.map(review => `<div><h1>${review.title}<h1><p><em>${review.content}<em></p></div><br>`);
+    $('#reviews').append(renderedReviews);
+    });
+    $(".load-reviews").addClass("hidden");
+  });
+};
+
 
 $(document).ready(function(){
   // next game on show page for all_games
@@ -38,6 +41,4 @@ $(document).ready(function(){
      $(".js-next-game").attr("data-id", data["id"]);
    });
   });
-  // 
-  // addNewReviewSubmitListener()
 }) // end of document ready

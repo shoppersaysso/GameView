@@ -23,19 +23,20 @@
   </div>
 
   <div id='reviews'>
+    <% if @game.reviews.count === 0 %>
+    <h1>You haven't yet reviewed this game.</h1>
+    <% else %>
     <button class="load-reviews" data-id="<%= @game.id %>">Load Reviews...</button>
-
+    <% end %>
   </div>
 
+  <br>
+
   <div id='reviewGame'>
-   <h5><%= link_to 'Review Game', new_game_review_path(@game), :class => 'review_game' %></h5>
+
+    <h5><strong>Write a Review for this Game:</strong></h5>
 
    <%= render :partial => 'reviews/form', locals: { review: @game.reviews.build, game: @game } %>
-
-   <div class="newReview">
-     <div id="title"></div>
-     <div id="content"></div>
-   </div>
 
  </div>
 
