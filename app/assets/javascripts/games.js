@@ -1,4 +1,4 @@
-//render a new review on the same page without refreshing
+//render a new review on the same page without refreshing and allow for additional reviews to post
 $(function () {
   $('.new_review').on("submit", function(e) {
     e.preventDefault();
@@ -7,7 +7,7 @@ $(function () {
     posting.done(function(data) {
       var review = data;
       $('#reviews').append(`<div><h1>${review.title}<h1><p><em>${review.content}<em></p></div><br>`)
-    })
+      });
     $('.new_review')[0].reset();
     return false;
   })
