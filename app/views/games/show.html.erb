@@ -24,6 +24,7 @@
    <h5><%= link_to 'Review Game', new_game_review_path(@game), :class => 'review_game' %></h5>
    <div class="newReview"></div>
 
+   <%= render :partial => 'reviews/form', locals: { review: @game.reviews.build, game: @game } %>
 
    <div id="links">
    <br>

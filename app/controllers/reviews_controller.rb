@@ -1,8 +1,13 @@
 class ReviewsController < ApplicationController
-  before_action :disable_flash, :load_game, only: [:show, :new, :edit, :update, :destroy, :content]
+  before_action :disable_flash, :load_game, only: [:index, :show, :new, :edit, :update, :destroy, :content]
 
   def show
     @review = @game.reviews.find(params[:id])
+  end
+
+  def index
+    @reviews = @game.reviews
+    render json: @reviews, status: 200
   end
 
   def new
@@ -18,6 +23,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+
     @game = Game.find(params[:game_id])
     @review = current_user.reviews.build(review_params)
     current_user.level_up
@@ -25,7 +31,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         format.html { redirect_to([@review.game, @review], :notice => 'Review was successfully created.') }
-        format.xml  { render :xml => @review, :status => :created, :location => [@review.game, @review] }
+        format.json  { render :json => @review, :status => :created }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @review.errors, :status => :unprocessable_entity }
