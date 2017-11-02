@@ -19,7 +19,7 @@ function loadReviewsListener() {
     var gameId = parseInt($(".load-reviews").attr("data-id"));
     $.get("/games/" + gameId + "/reviews" + ".json", function(reviews) {
     var renderedReviews = reviews.map(review => `<div><h1>${review.title}<h1><p><em>${review.content}<em></p></div><br>`);
-    $('#reviews').append(renderedReviews);
+    $('#reviews').html(renderedReviews);
     });
     $(".load-reviews").addClass("hidden");
   });
@@ -40,5 +40,7 @@ $(document).ready(function(){
      // re-set the id to current on the link
      $(".js-next-game").attr("data-id", data["id"]);
    });
+
   });
+  loadReviewsListener();
 }) // end of document ready
